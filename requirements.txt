@@ -1,5 +1,8 @@
 beautifulsoup4
-nltk==3.7
+nltk
 numpy
 pandas
 requests
+pyspark
+pyarrow
+pytest
