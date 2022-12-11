@@ -10,7 +10,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_expand_query(self):
         self.assertEqual('dame', expand_query('lady'))
-        self.assertEqual('mind intellectual reason', expand_query('intellect'))
+        self.assertEqual('cerebral', expand_query('intellectual'))
 
 
 if __name__ == '__main__':
