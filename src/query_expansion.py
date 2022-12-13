@@ -22,10 +22,7 @@ from datetime import datetime
 
 
 def download_nltk_packages():
-    nltk.download('wordnet')
-    nltk.download('punkt')
-    nltk.download('stopwords')
-    # nltk.download('averaged_perceptron_tagger')
+    nltk.download('wordnet')  # nltk package required for getting synonyms
 
 
 download_nltk_packages()
@@ -33,7 +30,7 @@ download_nltk_packages()
 
 def preprocess(tokens):
     text = tokens.lower()
-    text = re.sub(r'[^a-zA-Z0-9 ]', '', text)  # regex na odstranenie specialnych znakov
+    text = re.sub(r'[^a-zA-Z0-9 ]', '', text)  # regex for removing special characters
     return text
 
 
