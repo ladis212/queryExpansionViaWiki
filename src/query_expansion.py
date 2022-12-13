@@ -28,8 +28,8 @@ def download_nltk_packages():
 download_nltk_packages()
 
 
-def preprocess(tokens):
-    text = tokens.lower()
+def preprocess(text):
+    text = text.lower()
     text = re.sub(r'[^a-zA-Z0-9 ]', '', text)  # regex for removing special characters
     return text
 
@@ -70,10 +70,8 @@ if __name__ == '__main__':
 
         df = spark.read.option('multiline', 'true').json(f)
         df = df.drop(col('text'))
-        tokenizer = Tokenizer(inputCol='title', outputCol='tokens')
-        tokenized_df = tokenizer.transform(df)
 
-        rdd2 = tokenized_df.rdd.map(lambda x: (preprocess(x.title), 1))
+        rdd2 = df.rdd.map(lambda x: (preprocess(x.title), 1))
         preprocessed_df = rdd2.toDF(['tokens']).select('tokens')
         pandas_df = preprocessed_df.toPandas()
 
