@@ -9,6 +9,8 @@ class Article:
         self.title = article_title
         self.text = article_text
 
+# Example scraping code to show how the dataset could be recreated
+
 
 queue = Queue(maxsize=10000)
 visited = list()
